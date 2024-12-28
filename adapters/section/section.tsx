@@ -14,7 +14,7 @@ import * as React from 'react';
 import { TypeRichTextSkeleton } from '@/lib/contentful/types';
 
 interface SectionProps {
-  headline: string;
+  headline?: string;
   description?: Entry<TypeRichTextSkeleton>;
   content?: Entry[];
   headlineAlignment?: 'center' | 'left' | 'right';
@@ -75,9 +75,11 @@ export const Section: FC<SectionProps> = ({
   return (
     <section style={sectionStyles} className="w-full py-6 md:py-10">
       <div className="container mx-auto px-4">
-        <Typography variant="h2" component="h2" className={headlineStyles}>
-          {headline}
-        </Typography>
+        {headline && (
+          <Typography variant="h2" component="h2" className={headlineStyles}>
+            {headline}
+          </Typography>
+        )}
         {description ? (
           <div className="pb-2">
             <Compose {...description} />

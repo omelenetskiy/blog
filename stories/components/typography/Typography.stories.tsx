@@ -32,51 +32,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Typography>;
 
-export const Heading1: Story = {
+export const Heading: Story = {
   args: {
     variant: 'h1',
     component: 'h1',
-    children: 'Heading 1',
-  },
-};
-
-export const Heading2: Story = {
-  args: {
-    variant: 'h2',
-    component: 'h2',
-    children: 'Heading 2',
-  },
-};
-
-export const Heading3: Story = {
-  args: {
-    variant: 'h3',
-    component: 'h3',
-    children: 'Heading 3',
-  },
-};
-
-export const Heading4: Story = {
-  args: {
-    variant: 'h4',
-    component: 'h4',
-    children: 'Heading 4',
-  },
-};
-
-export const Heading5: Story = {
-  args: {
-    variant: 'h5',
-    component: 'h5',
-    children: 'Heading 5',
-  },
-};
-
-export const Heading6: Story = {
-  args: {
-    variant: 'h6',
-    component: 'h6',
-    children: 'Heading 6',
+    children: 'Heading',
   },
 };
 
@@ -126,4 +86,33 @@ export const Overline: Story = {
     component: 'span',
     children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
+};
+
+export const List: Story = {
+  args: {},
+  render: () => (
+    <>
+      <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+      </ul>
+      <ol className="my-6 ml-6 list-decimal [&>li]:mt-2">
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+      </ol>
+    </>
+  ),
+};
+
+export const Blockquote: Story = {
+  args: {},
+  render: () => (
+    <blockquote className="my-4 border-s-4 border-gray-300 bg-gray-50 p-4 dark:border-gray-500 dark:bg-gray-800">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </blockquote>
+  ),
 };

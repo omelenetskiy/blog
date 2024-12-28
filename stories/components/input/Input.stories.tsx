@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Input } from '@/components/ui/input';
+import { StorybookWrapper } from '@/stories/components/utils';
 
 const meta = {
   title: 'Components/Input',
@@ -15,11 +16,20 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Input>;
 
+const InputComponent = (args: Story) => {
+  return (
+    <StorybookWrapper>
+      <Input {...args} />
+    </StorybookWrapper>
+  );
+};
+
 export const Default: Story = {
   args: {
     type: 'text',
     placeholder: 'Enter text',
   },
+  render: InputComponent,
 };
 
 export const Password: Story = {
@@ -27,6 +37,7 @@ export const Password: Story = {
     type: 'password',
     placeholder: 'Enter password',
   },
+  render: InputComponent,
 };
 
 export const Disabled: Story = {
@@ -35,4 +46,5 @@ export const Disabled: Story = {
     placeholder: 'Disabled input',
     disabled: true,
   },
+  render: InputComponent,
 };

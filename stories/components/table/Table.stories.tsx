@@ -71,7 +71,7 @@ export const Default: Story = {
   args: {
     className: '',
   },
-  render: (args) => (
+  render: () => (
     <Table>
       <TableCaption>A list of your recent invoices.</TableCaption>
       <TableHeader>

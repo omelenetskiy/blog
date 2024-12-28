@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Separator } from '@/components/ui/separator';
 import { Typography } from '@/components/ui/typography';
+import { StorybookWrapper } from '@/stories/components/utils';
 
 const meta = {
   title: 'Components/Separator',
@@ -19,48 +20,30 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Separator>;
 
-export const Horizontal: Story = {
+export const Default: Story = {
   args: {
     className: '',
     orientation: 'horizontal',
     decorative: true,
   },
-  render: (args) => (
-    <>
-      <div>
-        <Typography variant="body1" className="text-muted-foreground">
-          lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua lorem ipsum dolor
-          sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua
+  render: () => (
+    <StorybookWrapper>
+      <div className="space-y-1">
+        <Typography variant="h4" component="h4">
+          Separator
+        </Typography>
+        <Typography variant="body1">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </Typography>
       </div>
-      <Separator {...args} className="my-4" />
-      <div>
-        <Typography variant="body1" className="text-muted-foreground">
-          lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua lorem ipsum dolor
-          sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua
-        </Typography>
+      <Separator className="my-4" />
+      <div className="flex h-5 items-center space-x-4 text-sm">
+        <Typography variant="body1">Blog</Typography>
+        <Separator orientation="vertical" />
+        <Typography variant="body1">Docs</Typography>
+        <Separator orientation="vertical" />
+        <Typography variant="body1">Source</Typography>
       </div>
-    </>
-  ),
-};
-
-export const Vertical: Story = {
-  args: {
-    className: '',
-    orientation: 'vertical',
-    decorative: true,
-  },
-  render: (args) => (
-    <div className="flex h-10 items-center space-x-4 text-sm">
-      <div>Blog</div>
-      <Separator orientation="vertical" />
-      <div>Docs</div>
-      <Separator orientation="vertical" />
-      <div>Source</div>
-    </div>
+    </StorybookWrapper>
   ),
 };
